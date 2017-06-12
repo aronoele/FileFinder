@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<directory name ="1">	<directory name ="two words">
+		<file name ="1f.txt"></file>
+		<directory name ="2">
+			<directory name ="3">
+				<file name ="Component.cpp"></file>
+				<file name ="Component.h"></file>
+				<file name ="Directory.cpp"></file>
+				<file name ="Directory.h"></file>
+			</directory>
+			<directory name ="4">
+				<directory name ="5">
+					<file name ="File.cpp"></file>
+					<file name ="File.h"></file>
+					<file name ="FileFinder.cpp"></file>
+					<file name ="FileFinder.h"></file>
+				</directory>
+				<directory name ="6">
+					<file name ="FileFinder.vcxproj"></file>
+					<file name ="FileFinder.vcxproj.filters"></file>
+					<file name ="FileFinder.vcxproj.user"></file>
+					<file name ="filefinder.xml"></file>
+					<file name ="main.cpp"></file>
+				</directory>
+			</directory>
+		</directory>
+	</directory>
+</directory>
