@@ -1,5 +1,4 @@
 #include "FileFinder.h"
-#include <iostream>
 
 FileFinder::FileFinder(const string& path)
 {
@@ -11,9 +10,8 @@ FileFinder::FileFinder(const string& path)
 
 FileFinder::~FileFinder()
 {
-	node_ = root_;
-	clear(node_);
-	delete node_;
+	clear(root_);
+	delete root_;
 }
 
 void FileFinder::clear(Directory* node)
@@ -152,11 +150,9 @@ void FileFinder::saveToXml()
 		cout << "Writting error\n";
 	}
 	out << "<?xml version=\"1.0\"?>\n";
-	//out << "<filesystem>\n";
 	out << "<directory name =\"" << node_->getName() << "\">";
 	int tab = 1;
 	saveToXml(out, tab);
-	//out << "</filesystem>\n";
 	out << "</directory>\n"; 
 	out.close();
 	node_ = root_;

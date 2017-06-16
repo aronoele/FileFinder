@@ -1,14 +1,12 @@
 #include "Directory.h"
-#include <iostream>
 
-using std::string;
 using std::vector;
 
 Directory::Directory() { std::cout << "Default Directory c-tor\n"; }
 
-Directory::Directory(const string& name) : Component(name) { /*std::cout << "Directory c-tor\n";*/ }
+Directory::Directory(const string& name) : Component(name) {}
 
-Directory::~Directory() { /*components_.clear();*/ /*std::cout << "Directory " + getName() + " d-tor\n";*/ }
+Directory::~Directory() { /*components_.clear();*/ }
 
 bool Directory::isDirectory()
 {

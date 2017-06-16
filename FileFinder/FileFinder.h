@@ -7,8 +7,6 @@
 #include <fstream>
 
 #include "Component.h"
-#pragma once
-
 #include "File.h"
 #include "Directory.h"
 
