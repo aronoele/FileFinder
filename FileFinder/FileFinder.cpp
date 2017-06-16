@@ -3,7 +3,6 @@
 
 FileFinder::FileFinder(const string& path)
 {
-	std::cout << "FileFinder c-tor\n";
 	node_ = new Directory(path.substr(path.find_last_of('\\') + 1));
 	root_ = node_;
 	parent_ = nullptr;
@@ -12,35 +11,24 @@ FileFinder::FileFinder(const string& path)
 
 FileFinder::~FileFinder()
 {
-	std::cout << "FileFinder d-tor\n";
 	node_ = root_;
 	clear(node_);
-	//delete node_;
+	delete node_;
 }
 
 void FileFinder::clear(Directory* node)
 {
-	node_ = node;
-	vector<Component*> components = node_->getComponents();
+	vector<Component*> components = node->getComponents();
 
 	for (int i = 0; i < components.size(); i++)
 	{
 		if (components[i]->isDirectory()) {
-			parent_ = node_;
-			node_ = static_cast<Directory*>(components[i]);
-			clear(node_);
-		}
-		else {
-			cout << "delete file " << components[i]->getName() << endl;
+			clear(static_cast<Directory*>(components[i]));
 			delete components[i];
 		}
-	}
-
-	if (node_ != root_) {
-		cout << "delete directory " << node_->getName() << endl;
-		delete node_;
-		node_ = parent_;
-		cout << "node = parent : " << node_->getName() << endl;
+		else {
+			delete components[i];
+		}
 	}
 }
 
@@ -60,12 +48,10 @@ void FileFinder::scan(const string& path)
 		currentPath = path + "\\";
 		currentPath.append(fd.name);
 		if (!(fd.attrib & _A_SUBDIR)) {
-			//std::cout << "new File " <<fd.name << std::endl;
 			File* file = new File(fd.name);
 			node_->add(file);
 		}
 		else {
-			//std::cout << "new Directory " << fd.name << std::endl;
 			Directory* directory = new Directory(fd.name);
 			node_->add(directory);
 			parent_ = node_;

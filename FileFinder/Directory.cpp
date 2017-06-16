@@ -8,7 +8,7 @@ Directory::Directory() { std::cout << "Default Directory c-tor\n"; }
 
 Directory::Directory(const string& name) : Component(name) { /*std::cout << "Directory c-tor\n";*/ }
 
-Directory::~Directory() { components_.clear(); std::cout << "Directory d-tor\n"; }
+Directory::~Directory() { /*components_.clear();*/ /*std::cout << "Directory " + getName() + " d-tor\n";*/ }
 
 bool Directory::isDirectory()
 {
